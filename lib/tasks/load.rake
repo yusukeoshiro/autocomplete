@@ -28,10 +28,9 @@ namespace :load do
         end
     end
 
-
     task :large_products => :environment do
         Product.all.delete_all
-        3000000.times.each do
+        3000000.times.each do |i|
             new_product = Product.new
             uuid = SecureRandom.uuid
             new_product.name = uuid
@@ -40,7 +39,11 @@ namespace :load do
             new_product.manufacturer = uuid
             new_product.save
         end
+    end
 
+    task :elasticsearch => :environment do
+        Product.__elasticsearch__.create_index! force: true
+        Product.__elasticsearch__.import
     end
 
 end
