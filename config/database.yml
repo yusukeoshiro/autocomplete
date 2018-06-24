@@ -23,8 +23,8 @@ default: &default
 
 development:
   <<: *default
-  # database: autocomplete_development
-  url: postgres://postgres:password@104.198.89.137:5432/autocomplete
+  #url: postgres://postgres:password@104.198.89.137:5432/autocomplete
+  url: <%= ENV['DATABASE_URL'] %>
 
 test:
   <<: *default

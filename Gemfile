@@ -13,6 +13,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'dotenv-rails'
 
 
 group :development, :test do
